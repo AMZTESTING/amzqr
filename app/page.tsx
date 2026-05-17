@@ -28,52 +28,51 @@ export default function Home() {
       <div className="absolute inset-0 bg-white/30 backdrop-blur-sm" />
 
       {/* Content */}
-      <div className="relative z-10 px-6 py-6">
+      <div className="relative z-10 px-5 py-5 max-w-lg mx-auto">
 
         {/* Top Bar */}
         <div className="flex justify-end">
-          <button className="flex items-center gap-2 rounded-full bg-white/50 px-5 py-3 backdrop-blur-xl shadow-md">
-            <Globe size={18} />
+          <button className="flex items-center gap-2 rounded-full bg-white/50 px-4 py-2.5 backdrop-blur-xl shadow-md text-sm">
+            <Globe size={16} />
             EN
           </button>
         </div>
 
         {/* Logo */}
-        <div className="mt-8 flex flex-col items-center">
+        <div className="mt-6 flex flex-col items-center">
 
-          <div className="flex h-24 w-24 items-center justify-center rounded-full bg-white/60 text-3xl font-bold shadow-xl backdrop-blur-xl">
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/60 text-2xl font-bold shadow-xl backdrop-blur-xl">
             A
           </div>
 
-          <h1 className="mt-5 text-6xl font-bold text-[#1a1a1a]">
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold text-[#1a1a1a]">
             AMZQR
           </h1>
 
-          <p className="mt-2 text-lg text-black/70">
+          <p className="mt-1.5 text-sm text-black/70">
             Smart Coffee Ordering
           </p>
 
         </div>
 
         {/* Hero */}
-        <div className="mt-14 text-center">
+        <div className="mt-8 text-center">
 
-          <h2 className="text-5xl font-bold leading-tight text-[#111]">
+          <h2 className="text-3xl md:text-4xl font-bold leading-tight text-[#111]">
             Order Your Coffee
-
             <span className="block text-[#b07b4f]">
               Instantly
             </span>
           </h2>
 
-          <p className="mt-5 text-lg text-black/60">
+          <p className="mt-3 text-sm text-black/60">
             Skip the queue and enjoy your coffee experience
           </p>
 
         </div>
 
         {/* Cards */}
-        <div className="mt-12 space-y-5">
+        <div className="mt-8 space-y-4">
 
           {/* DINE IN */}
           <Link
@@ -83,31 +82,18 @@ export default function Home() {
               localStorage.setItem("orderMode", "dinein");
             }}
           >
-
-            <div className="flex items-center justify-between rounded-[32px] bg-white/35 p-5 shadow-xl backdrop-blur-2xl border border-white/30">
-
-              <div className="flex items-center gap-4">
-
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-black shadow-md">
-                  <Coffee size={28} />
+            <div className="flex items-center justify-between rounded-[28px] bg-white/35 p-4 shadow-xl backdrop-blur-2xl border border-white/30 active:scale-[0.98] transition">
+              <div className="flex items-center gap-3">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-md">
+                  <Coffee size={24} />
                 </div>
-
                 <div>
-                  <h3 className="text-2xl font-semibold">
-                    Dine In
-                  </h3>
-
-                  <p className="text-black/60">
-                    Order from your table
-                  </p>
+                  <h3 className="text-lg font-semibold">Dine In</h3>
+                  <p className="text-xs text-black/60">Order from your table</p>
                 </div>
-
               </div>
-
-              <ChevronRight />
-
+              <ChevronRight size={20} />
             </div>
-
           </Link>
 
           {/* CAR ORDER */}
@@ -118,31 +104,18 @@ export default function Home() {
               localStorage.setItem("orderMode", "car");
             }}
           >
-
-            <div className="flex items-center justify-between rounded-[32px] bg-white/35 p-5 shadow-xl backdrop-blur-2xl border border-white/30">
-
-              <div className="flex items-center gap-4">
-
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-black shadow-md">
-                  <Car size={28} />
+            <div className="flex items-center justify-between rounded-[28px] bg-white/35 p-4 shadow-xl backdrop-blur-2xl border border-white/30 active:scale-[0.98] transition">
+              <div className="flex items-center gap-3">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-md">
+                  <Car size={24} />
                 </div>
-
                 <div>
-                  <h3 className="text-2xl font-semibold">
-                    Car Order
-                  </h3>
-
-                  <p className="text-black/60">
-                    We’ll bring it to your car
-                  </p>
+                  <h3 className="text-lg font-semibold">Car Order</h3>
+                  <p className="text-xs text-black/60">We'll bring it to your car</p>
                 </div>
-
               </div>
-
-              <ChevronRight />
-
+              <ChevronRight size={20} />
             </div>
-
           </Link>
 
           {/* GIFT CARD */}
@@ -153,60 +126,36 @@ export default function Home() {
               localStorage.setItem("orderMode", "gift");
             }}
           >
-
-            <div className="flex items-center justify-between rounded-[32px] bg-white/35 p-5 shadow-xl backdrop-blur-2xl border border-white/30">
-
-              <div className="flex items-center gap-4">
-
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white text-black shadow-md">
-                  <Gift size={28} />
+            <div className="flex items-center justify-between rounded-[28px] bg-white/35 p-4 shadow-xl backdrop-blur-2xl border border-white/30 active:scale-[0.98] transition">
+              <div className="flex items-center gap-3">
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white text-black shadow-md">
+                  <Gift size={24} />
                 </div>
-
                 <div>
-                  <h3 className="text-2xl font-semibold">
-                    Gift Cards
-                  </h3>
-
-                  <p className="text-black/60">
-                    Send gifts instantly
-                  </p>
+                  <h3 className="text-lg font-semibold">Gift Cards</h3>
+                  <p className="text-xs text-black/60">Send gifts instantly</p>
                 </div>
-
               </div>
-
-              <ChevronRight />
-
+              <ChevronRight size={20} />
             </div>
-
           </Link>
 
         </div>
 
         {/* AI BOX */}
-        <div className="mt-6 rounded-[32px] bg-gradient-to-r from-[#b07b4f] to-[#8d5d37] p-6 text-white shadow-2xl">
-
+        <div className="mt-5 rounded-[28px] bg-gradient-to-r from-[#b07b4f] to-[#8d5d37] p-5 text-white shadow-2xl active:scale-[0.98] transition">
           <div className="flex items-center justify-between">
-
             <div>
-
               <div className="flex items-center gap-2">
-                <Sparkles size={20} />
-
-                <h4 className="text-xl font-semibold">
-                  Ask AMZ AI
-                </h4>
+                <Sparkles size={18} />
+                <h4 className="text-base font-semibold">Ask AMZ AI</h4>
               </div>
-
-              <p className="mt-2 text-white/80">
+              <p className="mt-1.5 text-sm text-white/80">
                 Let AI recommend your perfect order
               </p>
-
             </div>
-
-            <ChevronRight />
-
+            <ChevronRight size={20} />
           </div>
-
         </div>
 
       </div>
