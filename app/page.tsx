@@ -40,35 +40,28 @@ export default function Home() {
 
         {/* Logo */}
         <div className="mt-6 flex flex-col items-center">
-
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/60 text-2xl font-bold shadow-xl backdrop-blur-xl">
             A
           </div>
-
           <h1 className="mt-4 text-4xl md:text-5xl font-bold text-[#1a1a1a]">
             AMZQR
           </h1>
-
           <p className="mt-1.5 text-sm text-black/70">
             Smart Coffee Ordering
           </p>
-
         </div>
 
         {/* Hero */}
         <div className="mt-8 text-center">
-
           <h2 className="text-3xl md:text-4xl font-bold leading-tight text-[#111]">
             Order Your Coffee
             <span className="block text-[#b07b4f]">
               Instantly
             </span>
           </h2>
-
           <p className="mt-3 text-sm text-black/60">
             Skip the queue and enjoy your coffee experience
           </p>
-
         </div>
 
         {/* Cards */}
@@ -158,8 +151,37 @@ export default function Home() {
           </div>
         </div>
 
-      </div>
+        {/* FOOTER */}
+        <div className="mt-10 pb-8 text-center">
+          {/* Logo */}
+          <div className="flex items-center justify-center gap-1 mb-3">
+            <div className="h-8 w-8 rounded-full bg-[#b07b4f] flex items-center justify-center text-white text-xs font-bold">
+              A
+            </div>
+            <span className="text-lg font-bold text-[#1a1a1a]">AMZQR</span>
+          </div>
 
+          {/* Divider */}
+          <div className="flex items-center justify-center gap-4 mb-2">
+            <div className="h-px w-12 bg-black/10" />
+            <p className="text-[10px] text-black/30 uppercase tracking-[0.2em] font-medium">
+              Powered by
+            </p>
+            <div className="h-px w-12 bg-black/10" />
+          </div>
+
+          {/* Name */}
+          <p className="text-sm font-bold text-[#b07b4f] tracking-wide">
+            Ali Zakeri
+          </p>
+          
+          {/* Subtitle */}
+          <p className="text-[10px] text-black/30 mt-0.5">
+            Smart Coffee Ordering System
+          </p>
+        </div>
+
+      </div>
     </main>
   );
 }
