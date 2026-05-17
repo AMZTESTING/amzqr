@@ -6,11 +6,16 @@ import {
   Wallet,
   Apple,
   Smartphone,
+
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {
 
+  const router = useRouter();
+  const [successMessage, setSuccessMessage] = useState<any>(null);
+  
   const [cart, setCart] = useState<any[]>([]);
 
   // ORDER MODE
@@ -258,7 +263,16 @@ export default function CheckoutPage() {
       console.log("✅ Order placed successfully:", data);
 
       // Success
-      alert("✅ Order placed successfully! Order #" + data[0].id);
+      const messages = [
+  { emoji: "☕", title: "Small Moment, Big Joy", subtitle: "You just supported a small coffee moment", color: "#C08552" },
+  { emoji: "🌟", title: "Brewed with Love", subtitle: "Your order is being crafted with care", color: "#8d5d37" },
+  { emoji: "🫘", title: "Good Vibes Incoming", subtitle: "Happiness is brewing just for you", color: "#b07b4f" },
+  { emoji: "🎉", title: "Made with Passion", subtitle: "Every sip tells a story", color: "#6f4e37" },
+  { emoji: "💫", title: "Magic in the Making", subtitle: "Your perfect cup is on its way", color: "#C08552" },
+];
+
+const random = messages[Math.floor(Math.random() * messages.length)];
+setSuccessMessage({ ...random, orderId: data[0].id });
 
       // Clear cart
       localStorage.removeItem("cart");
@@ -926,6 +940,101 @@ export default function CheckoutPage() {
         )}
 
       </div>
+      {successMessage && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl">
+      
+      {/* Header */}
+      <div className="text-center mb-4">
+        <div className="text-5xl mb-2">{successMessage.emoji}</div>
+        <h2 className="text-xl font-bold" style={{ color: successMessage.color }}>
+          {successMessage.title}
+        </h2>
+        <p className="text-gray-500 text-sm mt-1">{successMessage.subtitle}</p>
+      </div>
+
+      {/* Receipt Card */}
+      <div className="bg-gray-50 rounded-2xl p-4 mb-4">
+        {/* Logo & Order # */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-full bg-[#C08552] flex items-center justify-center text-white text-xs font-bold">A</div>
+            <span className="font-bold text-sm">AMZQR</span>
+          </div>
+          <span className="text-xs text-gray-500">#{successMessage.orderId}</span>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-dashed border-gray-300 my-3" />
+
+        {/* Items */}
+        <div className="space-y-2 mb-3">
+          {cart.map((item: any) => (
+            <div key={item.cartId || item.id} className="flex justify-between text-sm">
+              <span className="text-gray-700">
+                {item.name}
+                {item.sizeLabel && <span className="text-gray-400 text-xs"> ({item.sizeLabel})</span>}
+                <span className="text-gray-400"> × {item.qty || 1}</span>
+              </span>
+              <span className="font-medium">{(parseInt(item.price) || 0) * (item.qty || 1)} AED</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-dashed border-gray-300 my-3" />
+
+        {/* Totals */}
+        <div className="space-y-1 text-sm">
+          {discountAmount > 0 && (
+            <div className="flex justify-between text-green-600">
+              <span>Discount</span>
+              <span>-{discountAmount} AED</span>
+            </div>
+          )}
+          <div className="flex justify-between font-bold text-base pt-1">
+            <span>Total</span>
+            <span style={{ color: successMessage.color }}>{total} AED</span>
+          </div>
+        </div>
+
+        {/* Payment Method */}
+        <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
+          <span>Payment:</span>
+          <span className="font-medium text-gray-700 capitalize">{paymentMethod}</span>
+        </div>
+      </div>
+
+      {/* Thank You Message */}
+      <div className="text-center mb-4">
+        <p className="text-xs text-gray-400">☕ Small coffee, big moments</p>
+        <p className="text-xs text-gray-400 mt-1">
+          {new Date().toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+        </p>
+      </div>
+
+      {/* Buttons */}
+      <div className="flex gap-3">
+        <button 
+          onClick={() => setSuccessMessage(null)} 
+          className="flex-1 bg-[#C08552] text-white py-3 rounded-xl font-bold text-sm hover:opacity-90"
+        >
+          ✨ Done
+        </button>
+        <button 
+          onClick={() => { 
+            setSuccessMessage(null); 
+            router.push("/menu"); 
+          }} 
+          className="flex-1 border-2 border-gray-200 py-3 rounded-xl font-medium text-sm hover:bg-gray-50"
+        >
+          Order More
+        </button>
+      </div>
+
+    </div>
+  </div>
+)}
 
     </main>
   );
