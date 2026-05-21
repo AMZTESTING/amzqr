@@ -104,7 +104,7 @@ export default function MenuPage() {
   };
 
   const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
-  const totalPrice = cart.reduce((sum, item) => sum + (parseInt(item.price) || 0) * (item.qty || 1), 0);
+  const totalPrice = cart.reduce((sum, item) => sum + (parseFloat(item.price) || 0) * (item.qty || 1), 0);
 
   const handleCheckout = () => {
     if (cart.length === 0) return;
@@ -190,7 +190,7 @@ export default function MenuPage() {
             <div className="text-left min-w-0">
               <p className="text-[10px] text-gray-400">Your Order</p>
               {totalItems > 0 ? (
-                <p className="font-bold text-[#C08552] text-xs">{totalPrice} AED</p>
+                <p className="font-bold text-[#C08552] text-xs">{totalPrice} OMR</p>
               ) : (
                 <p className="text-[10px] text-gray-400">Empty</p>
               )}
@@ -264,7 +264,7 @@ export default function MenuPage() {
                         <p className="text-xs text-gray-400">{item.sizeLabel}</p>
                       )}
                       <p className="text-[#C08552] font-bold text-sm mt-0.5">
-                        {(parseInt(item.price) || 0) * (item.qty || 1)} AED
+                        {(parseFloat(item.price) || 0) * (item.qty || 1)} OMR
                       </p>
                     </div>
 
@@ -296,13 +296,13 @@ export default function MenuPage() {
               <div className="border-t pt-3">
                 <div className="flex justify-between mb-3">
                   <span className="font-bold">Total</span>
-                  <span className="font-bold text-[#C08552] text-lg">{totalPrice} AED</span>
+                  <span className="font-bold text-[#C08552] text-lg">{totalPrice} OMR</span>
                 </div>
                 <button
                   onClick={handleCheckout}
                   className="w-full bg-[#C08552] text-white py-3 rounded-xl font-bold text-lg hover:opacity-90 active:scale-95 transition"
                 >
-                  Checkout • {totalPrice} AED
+                  Checkout • {totalPrice} OMR
                 </button>
               </div>
             )}

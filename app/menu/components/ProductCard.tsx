@@ -93,7 +93,7 @@ export default function ProductCard({
                 }`}
               >
                 <span>{size.label}</span>
-                <span className="block text-xs mt-0.5 opacity-80">{size.price} AED</span>
+                <span className="block text-xs mt-0.5 opacity-80">{size.price} OMR</span>
               </button>
             ))}
           </div>
@@ -108,7 +108,7 @@ export default function ProductCard({
           <span className="font-bold text-[#C08552]">
             {hasSizes && !selectedSize
               ? "Select size"
-              : `${getDisplayPrice()} AED`}
+              : `${getDisplayPrice()} OMR`}
           </span>
 
           <button

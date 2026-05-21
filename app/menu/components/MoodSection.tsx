@@ -126,9 +126,9 @@ export default function MoodSection({ onAddToCart }: { onAddToCart?: (product: a
 
   const getProductPrice = (product: any) => {
     if (product && product.hasSizes && product.sizes && product.sizes.length > 0) {
-      return `From ${product.sizes[0].price} AED`;
+      return `From ${product.sizes[0].price} OMR`;
     }
-    return product ? `${product.price} AED` : "";
+    return product ? `${product.price} OMR` : "";
   };
 
   return (
