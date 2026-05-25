@@ -108,23 +108,30 @@ export default function Home() {
         </div>
       </div>
 
-      {/* CHAT POPUP - No header, just iframe + close button */}
+      {/* CHAT POPUP */}
       {chatOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
           <div className="bg-white w-full max-w-md rounded-3xl shadow-2xl flex flex-col overflow-hidden" style={{ height: "600px" }}>
             
-            {/* Close button only */}
-            <div className="absolute top-3 right-3 z-10">
-              <button onClick={() => setChatOpen(false)} className="bg-black/50 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm hover:bg-black/70">✕</button>
+            <div className="bg-gradient-to-r from-[#b07b4f] to-[#8d5d37] p-4 text-white flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center text-xl">🤖</div>
+                <div>
+                  <h3 className="font-bold">AMZ AI</h3>
+                </div>
+              </div>
+              <button onClick={() => setChatOpen(false)} className="text-white text-xl hover:opacity-70">✕</button>
             </div>
 
-            <iframe
-              src="https://www.chatbase.co/chatbot-iframe/O0efa9bsinDcbOIu-YSay"
-              width="100%"
-              height="100%"
-              style={{ border: "none" }}
-              allow="microphone"
-            />
+            <div className="flex-1">
+              <iframe
+                src="https://www.chatbase.co/chatbot-iframe/O0efa9bsinDcbOIu-YSay"
+                width="100%"
+                height="100%"
+                style={{ border: "none" }}
+                allow="microphone"
+              />
+            </div>
 
           </div>
         </div>
