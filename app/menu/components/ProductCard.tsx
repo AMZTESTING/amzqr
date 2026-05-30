@@ -70,20 +70,20 @@ export default function ProductCard({
         )}
       </div>
 
-      {/* CONTENT - flex-1 ياخذ المساحة المتبقية */}
-      <div className="mt-3 flex flex-col flex-1">
+      {/* CONTENT */}
+      <div className="mt-2 flex flex-col flex-1">
         
-        {/* NAME - ارتفاع ثابت */}
-        <h3 className="text-lg font-bold text-black min-h-[3.5rem]">{name}</h3>
+        {/* NAME */}
+        <h3 className="text-lg font-bold text-black">{name}</h3>
         
-        {/* DESCRIPTION - ارتفاع ثابت مع clamp */}
-        <p className="text-sm text-black/60 mt-1 line-clamp-2 min-h-[2.5rem]">
+        {/* DESCRIPTION */}
+        <p className="text-sm text-black/60 mt-0.5 line-clamp-2">
           {description}
         </p>
 
-        {/* SIZES - ارتفاع ثابت */}
+        {/* SIZES */}
         {hasSizes && sizes.length > 0 ? (
-          <div className="flex gap-2 mt-3 min-h-[3rem]">
+          <div className="flex gap-2 mt-2">
             {sizes.map((size) => (
               <button
                 key={size.label}
@@ -103,15 +103,15 @@ export default function ProductCard({
             ))}
           </div>
         ) : (
-          <div className="min-h-[3rem]" />
+          <div className="flex-1" />
         )}
 
         {showError && hasSizes && (
           <p className="text-red-500 text-xs mt-1">Please select a size</p>
         )}
 
-        {/* PRICE + BUTTON - دايم في الأسفل */}
-        <div className="flex items-center justify-between mt-auto pt-3">
+        {/* PRICE + BUTTON */}
+        <div className="flex items-center justify-between mt-auto">
           <span className="font-bold text-[#C08552]">
             {hasSizes && !selectedSize
               ? "Select size"
